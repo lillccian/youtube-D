@@ -1,0 +1,13 @@
+<table class="table">
+	<% @ytlinks.each do |yt| %>
+		<tr>
+			<td><%= yt.name %></td>
+			<td><%= yt.link %></td>
+			<td><%= link_to "show", song_ytlink_path(@song,yt)%></td>
+			<td><%= link_to "edit", edit_song_ytlink_path(@song,yt) %></td>
+			<td><%= link_to "delete", song_ytlink_path(@song,yt), :method=>:delete %></td>
+		</tr>
+	<% end %>
+</table>
+<%= link_to "new",new_song_ytlink_path(@song) %>
+<%= link_to "back",song_path(@song) %>

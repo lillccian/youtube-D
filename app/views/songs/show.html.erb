@@ -3,4 +3,5 @@
 <tr><td><%= @song.link %></td></tr>
 <tr><td><%= @song.description %></td></tr>
 </table>
-<%= link_to "back",songs_path %>
+<%= link_to "ytlinks", song_ytlinks_path(@song) %>
+<%= link_to "back", songs_path %>
