@@ -1,16 +1,24 @@
-<table class="table table-hover">
-
+<table class="table table-hover table-bordered">
+	<tr>
+		<th>Channel Name</th>
+		<th>Host </th>
+		<th>Show</th>
+		<th>Edit</th>
+		<th>Delete</th>
+	</tr>
 	<% @songs.each do |s| %>
 	<tr>
 		<td><%= s.name %></td>
-		<td><%= s.link %></td>
-		<td><%= s.description %></td>
-		<td><%= link_to"show",song_path(s) %></td>
-		<td><%= link_to"edit",edit_song_path(s) %></td>
-		<td><%= link_to"delete",song_path(s),:method=>:delete %></td>
+		<td><%= s.user.email %></td>
+		<!-- show -->
+		<td><%= link_to'',song_path(s), :class=>'btn btn-default glyphicon glyphicon-search' %></td>
+		<!-- edit -->
+		<td><%= link_to'',edit_song_path(s), :class=>'btn btn-default glyphicon glyphicon-pencil' %></td>
+		<!-- delete -->
+		<td><%= link_to'',song_path(s),:method=>:delete, :class=>'btn btn-default glyphicon glyphicon-trash' %></td>
 	</tr>
 	<% end %>
 </table>
 
-<%= link_to"new", new_song_path %>
+<%= link_to'', new_song_path, :class=>'btn btn-default glyphicon glyphicon-plus' %>
 
