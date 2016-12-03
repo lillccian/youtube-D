@@ -17,7 +17,7 @@ class SongsController < ApplicationController
 	
 	def update
 		if @song.update(song_params)
-			redirect_to songs_path
+			redirect_to song_path(@song)
 		else
 			render :action => :edit
 		end
