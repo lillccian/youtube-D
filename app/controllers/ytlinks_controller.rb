@@ -21,6 +21,11 @@ class YtlinksController < ApplicationController
 		end
 	end
 
+	def destroy
+		@ytlink.destroy
+		redirect_to song_ytlinks_path(@song)
+	end
+
 	private
 
 	def set_song
