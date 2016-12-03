@@ -5,9 +5,12 @@
 		<td><%= s.name %></td>
 		<td><%= s.link %></td>
 		<td><%= s.description %></td>
-		<td><%= link_to"edit" %></td>
-		<td><%= link_to"delete" %></td>
+		<td><%= link_to"show",song_path(s) %></td>
+		<td><%= link_to"edit",edit_song_path(s) %></td>
+		<td><%= link_to"delete",song_path(s),:method=>:delete %></td>
 	</tr>
 	<% end %>
-
 </table>
+
+<%= link_to"new", new_song_path %>
+
