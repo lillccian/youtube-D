@@ -6,6 +6,9 @@ class YtlinksController < ApplicationController
 		@ytlinks = @song.ytlinks
 	end
 
+	def show 
+		@ytlink = @song.ytlinks.find(params[:id])
+	end
 
 	private
 
