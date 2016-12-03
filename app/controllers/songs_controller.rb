@@ -28,11 +28,11 @@ class SongsController < ApplicationController
 	end
 
 	def new
-		@song = Song.new
+		@song = current_user.songs.new
 	end
 
 	def create 
-		@song = Song.new(song_params)
+		@song = current_user.songs.new(song_params)
 		if @song.save
 			redirect_to songs_path
 		else
