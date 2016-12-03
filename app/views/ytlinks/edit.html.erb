@@ -1,8 +1,3 @@
-<%= form_for @ytlink, :url=> song_ytlink_path(@song) do |yt| %>
-	<%= yt.label :name, 'naem' %>
-	<%= yt.text_field :name %>
-	<%= yt.label :link, 'link' %>
-	<%= yt.text_field :link %>
-	<%= yt.submit %>
-	<%= link_to 'back', song_ytlinks_path(@song) %>
+<%= form_for @ytlink, :url=> song_ytlink_path(@song) do |y| %>
+	<%= render :partial => 'ytform', :locals => {:y => y} %>
 <% end %>
