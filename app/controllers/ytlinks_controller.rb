@@ -26,6 +26,20 @@ class YtlinksController < ApplicationController
 		redirect_to song_ytlinks_path(@song)
 	end
 
+	def new
+		@ytlink = @song.ytlinks.new
+	end
+
+	def create
+		@ytlink = @song.ytlinks.new(ytlink_params)
+		@ytlink.user = current_user
+		if @ytlink.save
+			redirect_to song_ytlinks_path(@song)
+		else
+			render :action => :new
+		end
+	end
+
 	private
 
 	def set_song

@@ -1,0 +1,7 @@
+<%= form_for @ytlink, :url => song_ytlinks_path(@song) do |yt| %>
+	<%= yt.label :name, 'name' %>
+	<%= yt.text_field :name %>
+	<%= yt.label :link, 'link' %>
+	<%= yt.text_field :link %>
+	<%= yt.submit %>
+<% end %>
