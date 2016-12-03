@@ -1,5 +1,13 @@
-<% @songs.each do |s| %>
-<%= s.name %>
-<%= s.link %>
-<%= s.description %>
-<% end %>
+<table class="table table-hover">
+
+	<% @songs.each do |s| %>
+	<tr>
+		<td><%= s.name %></td>
+		<td><%= s.link %></td>
+		<td><%= s.description %></td>
+		<td><%= link_to"edit" %></td>
+		<td><%= link_to"delete" %></td>
+	</tr>
+	<% end %>
+
+</table>
