@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: "songs#index"
   resources :songs do
   	resources :ytlinks
+  	resources :comments
   end
   resources :users
 

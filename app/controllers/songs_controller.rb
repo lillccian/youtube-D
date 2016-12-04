@@ -14,6 +14,7 @@ class SongsController < ApplicationController
 	def show 
 		@song.view!
 		@ytlinks = @song.ytlinks
+		@comments = @song.comments
 	end
 	
 	def edit 
