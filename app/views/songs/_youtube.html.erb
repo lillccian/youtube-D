@@ -30,6 +30,10 @@
     function onPlayerStateChange(event) {        
       if(event.data === 0) { 
         i += 1
+        if (i+1  > a.length){
+          i = 0
+        }
+
         player.loadVideoById(a[i])
 
       }
