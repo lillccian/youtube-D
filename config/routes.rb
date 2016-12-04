@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   	resources :ytlinks
   	resources :comments
     resources :likes , :only=>[:create ,:destroy]
+    resources :keeps , :only=>[:create ,:destroy]
   end
   resources :users
 

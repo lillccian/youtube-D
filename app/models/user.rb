@@ -7,7 +7,10 @@ class User < ApplicationRecord
   has_many :songs
   has_many :ytlinks
   has_many :comments
+  has_many :keeps
+  has_many :keepedusers , :through => :keeps, :source=> "song"
   has_many :likes
+  has_many :likedusers , :through => :likes, :source=> "song"
   def admin?
     self.role == "admin"
   end

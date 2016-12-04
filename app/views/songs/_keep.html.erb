@@ -1,0 +1,5 @@
+<% if @keep %>
+	<%= button_to "unKeep",song_keep_path(@song,@keep),:method=>:delete,:remote=>true,:class=>"btn btn-danger " %>
+<% else %>
+	<%= button_to "Keep",song_keeps_path(@song),:remote=>true,:class=>"btn btn-success" %>
+<% end %>
