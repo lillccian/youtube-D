@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :songs do
   	resources :ytlinks
   end
+  resources :users
 
 end
