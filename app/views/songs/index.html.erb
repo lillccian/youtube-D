@@ -1,35 +1,24 @@
-<%= link_to 'new Channel',new_song_path,:class=>'btn btn-default' %>
-<%= form_for @song, :url => songs_path do |s| %>
-	<%= render :partial =>'new' ,:locals =>{:s => s}%>
-	<%= s.collection_check_boxes(:tag_ids, Tag.all, :id, :tag) %>
-<% end %>
+<%= render 'new' %>
 <%= form_for @tag, :url=> tags_path do |t| %>
-<%= t.text_field :tag,:placeholder=>"#tags",:class=>"form-control" %>
-<button type="submit" class="btn btn-default">add tags</button>
+	<%= t.text_field :tag,:placeholder=>"#tags",:class=>"form-control" %>
+	<button type="submit" class="btn btn-default">add tags</button>
 <% end %>
-<table class="table table-hover table-bordered">
-	<tr>
-		<th>Channel Name</th>
-		<th>Songs</th>
-		<th>Views</th>
-		<th>Host</th>
-		<th>Show</th>
-		<th>Delete</th>
-	</tr>
-	<% @songs.each do |s| %>
-	<tr>
-		<th><%= s.name %></th>
-		<td><%= s.ytlinks.count %></td>
-		<td><%= s.view_count %></td>
-		<td><%= s.user.email %></td>
-		<!-- show -->
-		<td><%= link_to'',song_path(s), :class=>'btn btn-default glyphicon glyphicon-search' %></td>
-		<!-- delete -->
-		<td><%= link_to'',song_path(s),:method=>:delete, :class=>'btn btn-default glyphicon glyphicon-trash' %></td>
-	</tr>
-	<% end %>
-</table>
 
-
-
-
+<% @songs.each do |s| %>
+	<div class="col-lg-6">
+		<div class="panel panel-default">
+		  <div class="panel-heading"><%= s.name %></div>
+			<table class="table table-hover table-bordered">
+				<tr>
+					<td><%= s.ytlinks.count %></td>
+					<td><%= s.view_count %></td>
+					<td><%= s.user.email %></td>
+					<!-- show -->
+					<td width="5%"><%= link_to'',song_path(s), :class=>'btn btn-default glyphicon glyphicon-search' %></td>
+					<!-- delete -->
+					<td width="5%"><%= link_to'',song_path(s),:method=>:delete, :class=>'btn btn-default glyphicon glyphicon-trash' %></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+<% end %>
