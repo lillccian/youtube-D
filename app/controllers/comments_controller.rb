@@ -20,12 +20,15 @@ class CommentsController < ApplicationController
 	end
 	def create 
 		@comment = @song.comments.new(comment_params)
+		@comment.user = current_user
 		if @comment.save
 			redirect_to song_path(@song)
 		else
 			render :action => :new
 		end
 	end
+
+
 	def destroy
 		@comment.destroy
 		redirect_to song_path(@song)
