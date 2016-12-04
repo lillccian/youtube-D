@@ -7,6 +7,8 @@ class SongsController < ApplicationController
 	def index
 		@songs = Song.all 
 		@song = Song.new
+		@tags = Tag.all
+		@tag = Tag.new
 	end
 	
 	def show 
@@ -48,6 +50,6 @@ class SongsController < ApplicationController
 	end
 
 	def song_params
-		params.require(:song).permit(:name, :link, :description)
+		params.require(:song).permit(:name, :link, :description, :tag_ids=>[])
 	end
 end

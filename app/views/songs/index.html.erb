@@ -21,3 +21,14 @@
 	</tr>
 	<% end %>
 </table>
+
+<% @tags.each do |t| %>
+<%= t.tag %>
+<% end %>
+
+<%= form_for @tag, :url=> tags_path do |t| %>
+<%= t.text_field :tag,:placeholder=>"hi",:class=>"form-control" %>
+<%= t.submit %>
+<% end %>
+
+
