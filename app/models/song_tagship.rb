@@ -1,4 +1,4 @@
 class SongTagship < ApplicationRecord
-	belongs_to :tags
-	belongs_to :songs
+	belongs_to :tag
+	belongs_to :song
 end

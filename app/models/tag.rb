@@ -1,4 +1,4 @@
 class Tag < ApplicationRecord
 	has_many :song_tagships, :dependent=>:destroy
-	has_many :tags ,:through => :song_tagship
+	has_many :songs ,:through => :song_tagships
 end
