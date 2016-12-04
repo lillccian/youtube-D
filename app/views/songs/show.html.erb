@@ -22,8 +22,8 @@
 	<tr>
 		<td><%= y.name %></td>
 		<td><%= y.link %></td>
-		<td><%= link_to'edit',edit_song_ytlink_path(@song) %></td>
-		<td><%= link_to'delete',song_ytlink_path(@song) %></td>
+		<td><%= link_to'edit',edit_song_ytlink_path(@song,y) %></td>
+		<td><%= link_to'delete',song_ytlink_path(@song,y),:method =>:delete %></td>
 	</tr>
 	<% end %>
 </table>
