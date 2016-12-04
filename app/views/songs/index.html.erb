@@ -1,17 +1,19 @@
 <%= form_for @song, :url => songs_path do |s| %>
-	<%= render :partial =>'form' ,:locals =>{:s => s}%>
+	<%= render :partial =>'new' ,:locals =>{:s => s}%>
 <% end %>
 <table class="table table-hover table-bordered">
 	<tr>
 		<th>Channel Name</th>
-		<th>Host </th>
+		<th>Host</th>
+		<th>Songs</th>
 		<th>Show</th>
 		<th>Delete</th>
 	</tr>
 	<% @songs.each do |s| %>
 	<tr>
-		<td><%= s.name %></td>
+		<th><%= s.name %></th>
 		<td><%= s.user.email %></td>
+		<td><%= s.ytlinks.count %></td>
 		<!-- show -->
 		<td><%= link_to'',song_path(s), :class=>'btn btn-default glyphicon glyphicon-search' %></td>
 		<!-- delete -->
