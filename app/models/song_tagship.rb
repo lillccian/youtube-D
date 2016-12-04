@@ -1,0 +1,2 @@
+class SongTagship < ApplicationRecord
+end
