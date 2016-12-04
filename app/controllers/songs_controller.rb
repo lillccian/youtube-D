@@ -12,6 +12,7 @@ class SongsController < ApplicationController
 	end
 	
 	def show 
+		@ytlinks = @song.ytlinks
 	end
 	
 	def edit 

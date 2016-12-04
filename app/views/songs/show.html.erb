@@ -5,7 +5,18 @@
 	<tr><td><%= @song.description %></td></tr>
 	</table>
 </div>
-<%= link_to "ytlinks", song_ytlinks_path(@song), :class=>'btn btn-default' %>
-<%= link_to'edit',edit_song_path(@song), :class=>'btn btn-default' %>
-<%= link_to 'back', songs_path, :class=>'btn btn-default' %>
 
+<%= link_to'edit',edit_song_path(@song), :class=>'btn btn-default' %>
+
+<table class="table table-hover table-bordered">
+	<% @ytlinks.each do |y| %>
+	<tr>
+		<td><%= y.name %></td>
+		<td><%= y.link %></td>
+		<td><%= link_to'edit',edit_song_ytlink_path(@song) %></td>
+		<td><%= link_to'delete',song_ytlink_path(@song) %></td>
+	</tr>
+	<% end %>
+</table>
+
+<%= link_to 'back', songs_path, :class=>'btn btn-default' %> 
