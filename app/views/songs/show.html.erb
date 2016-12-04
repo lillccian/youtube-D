@@ -22,8 +22,9 @@
 	<tr>
 		<td><%= y.name %></td>
 		<td><%= y.link %></td>
-		<td><%= link_to'edit',edit_song_ytlink_path(@song,y) %></td>
-		<td><%= link_to'delete',song_ytlink_path(@song,y),:method =>:delete %></td>
+		<td><%= y.user.email %></td>
+		<td><%= link_to'edit',edit_song_ytlink_path(@song,y),:class=>'btn btn-default' %></td>
+		<td><%= link_to'delete',song_ytlink_path(@song,y),:method =>:delete,:class=>'btn btn-default' %></td>
 	</tr>
 	<% end %>
 </table>
@@ -34,8 +35,8 @@
 	<% @comments.each do |c| %>
 		<tr>
 			<td><%= c.title %></td>	
-			<td><%= link_to'edit',edit_song_comment_path(@song,c) %> </td>
-			<td><%= link_to'delete',song_comment_path(@song,c),:method=>:delete %> </td>
+			<td><%= link_to'edit',edit_song_comment_path(@song,c),:class=>'btn btn-default' %> </td>
+			<td><%= link_to'delete',song_comment_path(@song,c),:method=>:delete,:class=>'btn btn-default' %> </td>
 		</tr>
 	<% end %>
 </table>
