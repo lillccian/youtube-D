@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :songs do
   	resources :ytlinks
   	resources :comments
+    resources :likes , :only=>[:create ,:destroy]
   end
   resources :users
 

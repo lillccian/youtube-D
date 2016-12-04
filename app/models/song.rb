@@ -4,6 +4,7 @@ class Song < ApplicationRecord
 	has_many :song_tagships, :dependent=>:destroy
 	has_many :tags ,:through => :song_tagships
   has_many :comments
+  has_many :likes
 	def view!
     if self.view_count.nil?
       self.view_count = 1

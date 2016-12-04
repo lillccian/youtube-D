@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :songs
   has_many :ytlinks
   has_many :comments
+  has_many :likes
   def admin?
     self.role == "admin"
   end
