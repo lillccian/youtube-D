@@ -6,6 +6,7 @@ class User < ApplicationRecord
 	       :omniauthable, :omniauth_providers => [:facebook]
   has_many :songs
   has_many :ytlinks
+  has_many :comments
 
   def self.from_omniauth(auth)
      # Case 1: Find existing user by facebook uid

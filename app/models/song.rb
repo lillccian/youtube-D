@@ -3,7 +3,7 @@ class Song < ApplicationRecord
 	has_many :ytlinks
 	has_many :song_tagships, :dependent=>:destroy
 	has_many :tags ,:through => :song_tagships
-
+  has_many :comments
 	def view!
     if self.view_count.nil?
       self.view_count = 1
