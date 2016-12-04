@@ -10,16 +10,18 @@
 <table class="table table-hover table-bordered">
 	<tr>
 		<th>Channel Name</th>
-		<th>Host</th>
 		<th>Songs</th>
+		<th>Views</th>
+		<th>Host</th>
 		<th>Show</th>
 		<th>Delete</th>
 	</tr>
 	<% @songs.each do |s| %>
 	<tr>
 		<th><%= s.name %></th>
-		<td><%= s.user.email %></td>
 		<td><%= s.ytlinks.count %></td>
+		<td><%= s.view_count %></td>
+		<td><%= s.user.email %></td>
 		<!-- show -->
 		<td><%= link_to'',song_path(s), :class=>'btn btn-default glyphicon glyphicon-search' %></td>
 		<!-- delete -->

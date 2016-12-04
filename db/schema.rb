@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204025113) do
+ActiveRecord::Schema.define(version: 20161204054723) do
 
   create_table "song_tagships", force: :cascade do |t|
     t.integer  "song_id"
@@ -25,10 +25,12 @@ ActiveRecord::Schema.define(version: 20161204025113) do
     t.string   "name"
     t.string   "link"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "user_id"
+    t.integer  "view_count",  default: 0
     t.index ["user_id"], name: "index_songs_on_user_id"
+    t.index ["view_count"], name: "index_songs_on_view_count"
   end
 
   create_table "tags", force: :cascade do |t|
