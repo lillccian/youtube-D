@@ -3,6 +3,11 @@
 	<table class="table table-hover table-bordered">
 	<tr><th>Host <%= @song.user.email %></th></tr>
 	<tr><td><%= @song.description %></td></tr>
+	<tr><td>
+		<% @song.tags.each do|t| %>
+		<%= t.tag %>
+		<% end %>
+	</td></tr>
 	</table>
 </div>
 
