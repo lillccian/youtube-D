@@ -8,7 +8,7 @@ class SongsController < ApplicationController
 		@songs = Song.all 
 		@song = Song.new
 		@tags = Tag.all
-		@tag = Tag.new
+		
 	end
 	
 	def show 
@@ -19,14 +19,27 @@ class SongsController < ApplicationController
 		@comment = @song.comments.new
   	@keep = current_user.keeps.find_by_song_id(@song)
   	@like = current_user.likes.find_by_song_id(@song)
+  	@tag = Tag.new
 	end
 	
 	def edit 
+		if params[:order]
+			@id = @song.id
+			respond_to do |format|
+				format.js
+			end
+		else 
+			respond_to do |format|
+				format.js
+			end
+		end
 	end
 	
 	def update
 		if @song.update(song_params)
-			redirect_to song_path(@song)
+			respond_to do |format|
+				format.js
+			end
 		else
 			render :action => :edit
 		end

@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	<h4><%= @song.name %></h4>
+		<div id="like">
+			<%= render 'like'%>	
+		</div>
+		<div id="keep">
+			<%= render 'keep'%>	
+		</div>
+	</div>
+	<table class="table table-hover table-bordered">
+	<tr><th>
+		Host <%= @song.user.email %>
+		<div class="pull-right">
+			<%= link_to'edit',edit_song_path(@song),:remote=>true, :class=>'btn btn-default' %>		
+		</div>
+	</th></tr>
+	<tr><td><%= @song.description %></td></tr>
+	<tr><td>
+		<% @song.tags.each do|t| %>
+		<%= t.tag %>
+		<% end %>
+	</td></tr>
+	</table>
+</div>

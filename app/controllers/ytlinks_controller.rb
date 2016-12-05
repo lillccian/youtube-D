@@ -37,10 +37,19 @@ class YtlinksController < ApplicationController
 	end
 
 	def new
-		@ytlink = Ytlink.new
-		@ytlinks = @song.ytlinks.all
-		respond_to do |format|
-			format.js
+		if params[:order]
+			@id = @song.id
+			@ytlink = Ytlink.new
+			@ytlinks = @song.ytlinks.all
+			respond_to do |format|
+				format.js
+			end
+		else
+			@ytlink = Ytlink.new
+			@ytlinks = @song.ytlinks.all
+			respond_to do |format|
+				format.js
+			end
 		end
 	end
 

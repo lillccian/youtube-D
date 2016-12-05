@@ -1,0 +1,6 @@
+<% if @id %>
+	$('#song').html("")
+<% else %>
+	var editsong = "<%=j render :partial=>'editsong'%>"
+	$('#song').html(editsong)
+<% end %>

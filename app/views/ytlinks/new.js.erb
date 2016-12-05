@@ -1,2 +1,8 @@
-var newytlink = "<%=j render :partial=>'newytlink'%>"
-$('#ytlink').html(newytlink)
+<% if @id %>
+	a = <%= sanitize @ytlinks.pluck(:link).to_json %>
+	var ytlinks = "<%=j render :partial=>'songs/ytlinks'%>"
+	$('#ytlinks').html(ytlinks);
+<% else %>
+	var newytlink = "<%=j render :partial=>'newytlink'%>"
+	$('#ytlink').html(newytlink)
+<% end %>
