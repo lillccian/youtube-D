@@ -13,8 +13,10 @@ class SongsController < ApplicationController
 	
 	def show 
 		@song.view!
-		@ytlinks = @song.ytlinks
-		@comments = @song.comments
+		@ytlinks = @song.ytlinks.all
+		@ytlink = @song.ytlinks.new
+		@comments = @song.comments.all
+		@comment = @song.comments.new
   	@keep = current_user.keeps.find_by_song_id(@song)
   	@like = current_user.likes.find_by_song_id(@song)
 	end

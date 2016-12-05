@@ -15,9 +15,6 @@ class CommentsController < ApplicationController
 			render :action => :edit
 		end
 	end
-	def new
-		@comment = @song.comments.new
-	end
 	def create 
 		@comment = @song.comments.new(comment_params)
 		@comment.user = current_user

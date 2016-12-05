@@ -23,10 +23,6 @@ class YtlinksController < ApplicationController
 		end
 	end
 
-	def new
-		@ytlink = @song.ytlinks.new
-	end
-
 	def create
 		@ytlink = @song.ytlinks.new(ytlink_params)
 		@ytlink.user = current_user

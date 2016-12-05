@@ -1,5 +1,7 @@
+<div class="pull-left">
 <% if @like %>
 	<%= button_to "unLike",song_like_path(@song,@like),:method=>:delete,:remote=>true,:class=>"btn btn-danger " %>
 <% else %>
 	<%= button_to "Like",song_likes_path(@song),:remote=>true,:class=>"btn btn-success" %>
 <% end %>
+</div>

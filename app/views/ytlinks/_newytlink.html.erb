@@ -1,0 +1,10 @@
+<%= form_for @ytlink, :url => song_ytlinks_path(@song) do |y| %>
+	<table class="table table-hover table-bordered">
+		<tr>
+			<td><%= y.text_field :name, :class=>'form-control' %></td>
+			<td><%= y.text_field :link, :class=>'form-control' %></td>
+			<td><%= link_to 'cancel', song_path(@song), :class => 'btn btn-default' %></td>
+			<td><button type="submit" class='btn btn-default'>save</button></td>
+		</tr>
+	</table>
+<% end %>

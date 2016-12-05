@@ -1,0 +1,13 @@
+<table class="table table-hover table-bordered">
+	<%= form_for @comment,:url => song_comments_path(@song) do |c| %>
+		<tr>
+			<td><%= c.text_field :title, :class=>"form-control" %></td>
+			<td><%= link_to 'back',song_path(@song), :class=>'btn btn-default' %></td>
+		</tr>
+		<tr>
+			<td><%= c.text_area :description, :class=>"form-control" %></td>
+			<td><button type="submit" class="btn btn-default">add</button></td>
+		</tr>
+
+	<% end %>
+</table>
