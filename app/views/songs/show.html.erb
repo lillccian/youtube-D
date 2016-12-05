@@ -24,8 +24,6 @@
 	</table>
 </div>
 
-
-
 <%= render 'youtube' %>
 
 <p>ytlinks</p>
@@ -40,22 +38,14 @@
 
 <p>comments</p>
 
-<table class="table table-hover table-bordered">
-	<% @comments.each do |c| %>
-		<tr id="comment-<%= c.id %>">
-			<tr>
-				<td><%= c.title %></td>
-				<td><%= c.user.email %></td>
-				<td><%= link_to'edit',edit_song_comment_path(@song,c),:class=>'btn btn-default' %></td>
-			</tr>
-			<tr>
-				<td colspan="2"><%= c.description %></td>
-				<td><%= link_to'delete',song_comment_path(@song,c),:method=>:delete,:remote=>true,:class=>'btn btn-default' %></td>
-			</tr>
-		</tr>
-	<% end %>
-</table>
+<div id="comments">
+	<%= render 'comments' %>
+</div>
 
-<%= render 'comments/newcomment' %>
+<div id="comment">
+	<%= render 'comments/newcomment' %>	
+</div>
+
+
 
 <%= link_to 'back', songs_path, :class=>'btn btn-default' %> 

@@ -1,4 +1,4 @@
-<%= form_for @comment,:url => song_comments_path(@song),:remote=>true do |c| %>
+<%= form_for @comment,:url =>song_comment_path(@song),:remote=>true do |c| %>
 	<table class="table table-hover table-bordered">
 		<tr>
 			<td><%= c.text_field :title, :class=>"form-control" %></td>
@@ -6,7 +6,7 @@
 		</tr>
 		<tr>
 			<td><%= c.text_area :description, :class=>"form-control" %></td>
-			<td><button type="submit" class="btn btn-default">add</button></td>
+			<td><button type="submit" class="btn btn-default">save</button></td>
 		</tr>
 	</table>
 <% end %>

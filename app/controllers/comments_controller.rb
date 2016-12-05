@@ -6,20 +6,37 @@ class CommentsController < ApplicationController
 	def index
 		@comments = @song.comments
 	end
-	def edit 
+	def edit
+		respond_to do |format|
+			format.js
+		end
 	end
 	def update
 		if @comment.update(comment_params)
-			redirect_to song_path(@song)
+			@comment = Comment.new
+			@comments = @song.comments.all
+			respond_to do |format|
+				format.js
+			end
 		else
 			render :action => :edit
+		end
+	end
+	def new
+		@comment = Comment.new
+		respond_to do |format|
+			format.js
 		end
 	end
 	def create 
 		@comment = @song.comments.new(comment_params)
 		@comment.user = current_user
 		if @comment.save
-			redirect_to song_path(@song)
+			@comment = Comment.new
+			@comments = @song.comments.all
+			respond_to do |format|
+				format.js
+			end
 		else
 			render :action => :new
 		end
@@ -28,6 +45,7 @@ class CommentsController < ApplicationController
 
 	def destroy
 		@comment.destroy
+		@comments = @song.comments.all
 		respond_to do |format|
 			format.js
 		end
