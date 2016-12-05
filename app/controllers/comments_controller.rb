@@ -31,7 +31,9 @@ class CommentsController < ApplicationController
 
 	def destroy
 		@comment.destroy
-		redirect_to song_path(@song)
+		respond_to do |format|
+			format.js
+		end
 	end
 
 	private

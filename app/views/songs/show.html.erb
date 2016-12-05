@@ -25,8 +25,6 @@
 
 <p>ytlinks</p>
 
-
-<div id="ytlink"></div>
 <table class="table table-hover table-bordered">
 	<% @ytlinks.each do |y| %>
 	<tr id="ytlink-<%= y.id %>">
@@ -39,14 +37,15 @@
 	<% end %>
 </table>
 <%= link_to'add ytlinks',new_song_ytlink_path(@song),:class=>"btn btn-default" %>
+
 <p>comments</p>
 
 <table class="table table-hover table-bordered">
 	<% @comments.each do |c| %>
-		<tr>
+		<tr id="comment-<%= c.id %>">
 			<td><%= c.title %></td>	
 			<td><%= link_to'edit',edit_song_comment_path(@song,c),:class=>'btn btn-default' %> </td>
-			<td><%= link_to'delete',song_comment_path(@song,c),:method=>:delete,:class=>'btn btn-default' %> </td>
+			<td><%= link_to'delete',song_comment_path(@song,c),:method=>:delete,:remote=>true,:class=>'btn btn-default' %> </td>
 		</tr>
 	<% end %>
 </table>
