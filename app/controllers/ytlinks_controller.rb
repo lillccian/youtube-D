@@ -8,9 +8,19 @@ class YtlinksController < ApplicationController
 		@ytlinks = @song.ytlinks
 	end
 
+	def edit
+		respond_to do |format|
+			format.js
+		end
+	end
+
 	def update
 		if @ytlink.update(ytlink_params)
-			redirect_to song_path(@song)
+			@ytlink = Ytlink.new
+			@ytlinks = @song.ytlinks.all
+			respond_to do |format|
+				format.js
+			end
 		else
 			render :action => :edit
 		end
@@ -23,11 +33,24 @@ class YtlinksController < ApplicationController
 		end
 	end
 
+	def new
+		@ytlink = Ytlink.new
+		@ytlinks = @song.ytlinks.all
+		respond_to do |format|
+			format.js
+		end
+	end
+
 	def create
 		@ytlink = @song.ytlinks.new(ytlink_params)
 		@ytlink.user = current_user
+
 		if @ytlink.save
-			redirect_to song_path(@song)
+			@ytlink = Ytlink.new
+			@ytlinks = @song.ytlinks.all
+			respond_to do |format|
+				format.js
+			end
 		else
 			render :action => :new
 		end
