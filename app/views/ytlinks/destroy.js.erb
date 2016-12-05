@@ -1,1 +1,3 @@
-$('#ytlink-<%=@ytlink.id%>').remove();
+a = <%= sanitize @ytlinks.pluck(:link).to_json %>
+var ytlinks = "<%=j render :partial=>'songs/ytlinks'%>"
+$('#ytlinks').html(ytlinks);

@@ -27,6 +27,9 @@ class YtlinksController < ApplicationController
 	end
 
 	def destroy
+		@array = @song.ytlinks.pluck(:link)
+		@arrid = @array.index(@ytlink.link) 
+		@ytlinks = @song.ytlinks.all
 		@ytlink.destroy
 		respond_to do |format|
 			format.js
