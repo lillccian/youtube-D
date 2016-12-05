@@ -25,14 +25,16 @@
 
 <p>ytlinks</p>
 
+
+<div id="ytlink"></div>
 <table class="table table-hover table-bordered">
 	<% @ytlinks.each do |y| %>
-	<tr>
+	<tr id="ytlink-<%= y.id %>">
 		<td><%= y.name %></td>
 		<td><%= y.link %></td>
 		<td><%= y.user.email %></td>
 		<td><%= link_to'edit',edit_song_ytlink_path(@song,y),:class=>'btn btn-default' %></td>
-		<td><%= link_to'delete',song_ytlink_path(@song,y),:method =>:delete,:class=>'btn btn-default' %></td>
+		<td><%= link_to'delete',song_ytlink_path(@song,y),:method =>:delete,:remote=>true,:class=>'btn btn-default' %></td>
 	</tr>
 	<% end %>
 </table>

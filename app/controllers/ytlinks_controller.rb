@@ -1,5 +1,6 @@
 class YtlinksController < ApplicationController
-
+	
+	before_action :authenticate_user!
 	before_action :set_song
 	before_action :set_ytlink, :only => [:show, :edit, :update, :destroy]
 
@@ -17,7 +18,9 @@ class YtlinksController < ApplicationController
 
 	def destroy
 		@ytlink.destroy
-		redirect_to song_path(@song)
+		respond_to do |format|
+			format.js
+		end
 	end
 
 	def new
