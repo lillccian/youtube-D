@@ -1,6 +1,6 @@
 <%= form_for @ytlink, :url=> song_ytlink_path(@song),:remote => true do |y| %>
 	<table class="table table-hover table-bordered">
-		<tr>
+		<tr class="warning">
 			<td><%= y.text_field :name, :class=>'form-control' %></td>
 			<td><%= y.text_field :link, :class=>'form-control' %></td>
 			<td><%= link_to 'cancel', new_song_ytlink_path(@song),:remote=>true, :class => 'btn btn-default' %></td>
