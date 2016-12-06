@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     resources :tags
     resources :likes , :only=>[:create ,:destroy]
     resources :keeps , :only=>[:create ,:destroy]
+
+    collection do
+      get  :about
+    end
   end
   resources :users
 

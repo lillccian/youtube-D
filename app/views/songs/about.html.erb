@@ -1,0 +1,19 @@
+<div class="panel panel-default">
+  <div class="panel-heading"><b>About YouTube :D</b></div>
+	<table class="table table-bordered table-hover ">
+		<tr>
+			<td width="33%">Total</td>
+			<td width="33%">Total</td>
+			<td width="33%">Total</td>
+		</tr>
+		<tr>
+			<td><%= @users.count %> Users</td>
+			<td><%= @songs.count %> Channels</td>
+			<td><%= @ytlinks.count %> Ytlinks</td>
+		</tr>
+	</table>
+</div>
+
+
+
+<%= link_to"BACK",songs_path ,:class=>'btn btn-default' %>

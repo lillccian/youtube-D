@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
 
-	before_action :authenticate_user!, :except => [:index]
+	before_action :authenticate_user!, :except => [:index,:about]
 
 	before_action :set_song, :only => [:show, :edit, :update, :destroy]
 
@@ -66,6 +66,12 @@ class SongsController < ApplicationController
 		else
 			render :action => :new
 		end
+	end
+
+	def about 
+		@users = User.all
+		@songs = Song.all
+		@ytlinks = Ytlink.all
 	end
 
 	private
