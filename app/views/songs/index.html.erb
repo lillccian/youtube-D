@@ -1,25 +1,13 @@
+<div class="intro">
+	<%= image_tag "HEADER.jpg" %>
 
-<%= render 'new' %>
-
-<%= form_tag songs_path, :method => :get do %>
-	<table class="table table-bordered">
-	<tr>
-		<td>
-			<%= text_field_tag 'keyword', nil,:class=>"form-control", placeholder: 'find by tag' %>
-			<button type="submit" class ="btn btn-default">search</button>
-			<%= link_to "see all",songs_path,:class=>"btn btn-default" %>
-		</td>
-	</tr>
-	</table>
-<% end %>
-
+	<div class="newsong">
+		<%= render 'new' %>
+	</div>
+</div>
 
 <% if params[:keyword] %>
 	<% @tags.collect{|cu| cu.song}.uniq.each do |s| %>
-	 <%= render :partial => 'songs',:locals => {:s => s} %>
-	<% end %>
-<% elsif params[:keyword => nil] %>
-	<% @songs.each do |s| %>
 	 <%= render :partial => 'songs',:locals => {:s => s} %>
 	<% end %>
 <% else %>

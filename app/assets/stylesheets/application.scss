@@ -28,4 +28,21 @@ tr{
 img{
 	width: 100%;
 	height: auto;
+	padding-bottom: 20px;
+}
+
+.intro{
+	position: relative;
+}
+
+.newsong{
+	padding: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+  transform : translateX(-50%) translateY(-50%);
+	box-shadow: 10px 10px 15px rgba(0,0,0,0.15),-10px 10px 15px rgba(0,0,0,0.15);
+	.panel{
+		margin: 0;
+	}
 }
