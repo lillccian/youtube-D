@@ -39,13 +39,13 @@ class YtlinksController < ApplicationController
 	def new
 		if params[:order]
 			@id = @song.id
-			@ytlink = @song.tags.new
+			@ytlink = Ytlink.new
 			@ytlinks = @song.ytlinks.all
 			respond_to do |format|
 				format.js
 			end
 		else
-			@ytlink = @song.tags.new
+			@ytlink = Ytlink.new
 			@ytlinks = @song.ytlinks.all
 			respond_to do |format|
 				format.js

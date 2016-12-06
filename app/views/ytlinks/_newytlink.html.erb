@@ -1,8 +1,8 @@
 <%= form_for @ytlink, :url => song_ytlinks_path(@song),:remote => true do |y| %>
 	<table class="table table-hover table-bordered">
 		<tr>
-			<td><%= y.text_field :name, :class=>'form-control' %></td>
-			<td><%= y.text_field :link, :class=>'form-control' %></td>
+			<td><%= y.text_field :name, :placeholder=>'song name', :class=>'form-control' %></td>
+			<td><%= y.text_field :link, :placeholder=>'Youtube link id', :class=>'form-control' %></td>
 			<td><%= link_to 'cancel', new_song_ytlink_path(@song),:remote=>true, :class => 'btn btn-default' %></td>
 			<td><button type="submit" class='btn btn-default'>save</button></td>
 			<td><%= link_to '', new_song_ytlink_path(@song, :order=>"refresh"),:remote=>true, :class => 'btn btn-default glyphicon glyphicon-refresh' %></td>

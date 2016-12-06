@@ -1,7 +1,7 @@
 <%= form_for @tag,:url => song_tags_path(@song),:remote=>true do |t| %>
 	<table class="table table-hover table-bordered">
 		<tr>
-			<td><%= t.text_field :tag ,:class =>'form-control'%></td>
+			<td><%= t.text_field :tag ,:placeholder=>"add tags",:class =>'form-control'%></td>
 			<td><%= link_to'cancel',new_song_tag_path(@song),:remote=>true,:class =>"btn btn-default"%></td>
 			<td><button type="submit" class="btn btn-default">add tag</button></td>
 		</tr>

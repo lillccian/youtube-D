@@ -12,6 +12,7 @@ class TagsController < ApplicationController
 	def create
 		@tag = @song.tags.new(tag_params)
 		if @tag.save
+			@tag = @song.tags.new
 			@tags = @song.tags.all
 			respond_to do |format|
 				format.js

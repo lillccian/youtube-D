@@ -1,11 +1,11 @@
 <%= form_for @comment,:url => song_comments_path(@song),:remote=>true do |c| %>
 	<table class="table table-hover table-bordered">
 		<tr>
-			<td><%= c.text_field :title, :class=>"form-control" %></td>
+			<td><%= c.text_field :title, :placeholder=>'title', :class=>"form-control" %></td>
 			<td><%= link_to 'back',new_song_comment_path(@song),:remote=>true, :class=>'btn btn-default' %></td>
 		</tr>
 		<tr>
-			<td><%= c.text_area :description, :class=>"form-control" %></td>
+			<td><%= c.text_area :description, :placeholder=>'destription', :class=>"form-control" %></td>
 			<td><button type="submit" class="btn btn-default">add</button></td>
 		</tr>
 	</table>

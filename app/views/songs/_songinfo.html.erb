@@ -9,16 +9,21 @@
 		</div>
 	</div>
 	<table class="table table-hover table-bordered">
-	<tr><th colspan="2">
-		Host <%= @song.user.email %>
+	<tr><td>
+		<b>Host</b><br>
+		<%= @song.user.email %>
 		<div class="pull-right">
 			<%= link_to'edit',edit_song_path(@song),:remote=>true, :class=>'btn btn-default' %>		
 		</div>
-	</th></tr>
-	<tr><td colspan="2"><%= @song.description %></td></tr>
+	</td></tr>
+	<tr><td>
+		<b>Descriptions:</b><br>
+		<%= @song.description %>
+		
+	</td></tr>
 	<tr>
-		<th>Tags</th>
 		<td>
+			<b>Tags</b>
 			<% @tags.each do|t| %>
 			<%= link_to t.tag ,song_tag_path(@song,t),:method=>:delete,:remote=>true,:class=>'btn btn-default glyphicon glyphicon-remove' %>
 			<% end %>
