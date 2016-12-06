@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206115005) do
+ActiveRecord::Schema.define(version: 20161206120158) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "title",       default: "none title"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20161206115005) do
     t.string   "role"
     t.string   "profile"
     t.string   "name"
+    t.string   "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["fb_uid"], name: "index_users_on_fb_uid"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
