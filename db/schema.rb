@@ -13,12 +13,12 @@
 ActiveRecord::Schema.define(version: 20161205140826) do
 
   create_table "comments", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",       default: "none title"
     t.text     "description"
     t.integer  "user_id"
     t.integer  "song_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "keeps", force: :cascade do |t|
@@ -37,15 +37,6 @@ ActiveRecord::Schema.define(version: 20161205140826) do
     t.datetime "updated_at", null: false
     t.index ["song_id"], name: "index_likes_on_song_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
-  end
-
-  create_table "song_tagships", force: :cascade do |t|
-    t.integer  "song_id"
-    t.integer  "tag_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["song_id"], name: "index_song_tagships_on_song_id"
-    t.index ["tag_id"], name: "index_song_tagships_on_tag_id"
   end
 
   create_table "songs", force: :cascade do |t|

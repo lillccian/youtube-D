@@ -1,8 +1,7 @@
 class Song < ApplicationRecord
 	belongs_to :user
 	has_many :ytlinks
-	has_many :song_tagships, :dependent=>:destroy
-	has_many :tags ,:through => :song_tagships
+	has_many :tags 
   has_many :comments
   has_many :keeps
   has_many :keepedusers , :through => :keeps ,:dependent=>:destroy ,:source=> "user"

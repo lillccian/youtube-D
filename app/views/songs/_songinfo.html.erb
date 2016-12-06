@@ -2,10 +2,10 @@
   <div class="panel-heading">
   	<h4><%= @song.name %></h4>
 		<div id="like">
-			<%= render 'like'%>	
+			<%= render 'songs/like'%>	
 		</div>
 		<div id="keep">
-			<%= render 'keep'%>	
+			<%= render 'songs/keep'%>	
 		</div>
 	</div>
 	<table class="table table-hover table-bordered">
@@ -17,8 +17,8 @@
 	</th></tr>
 	<tr><td><%= @song.description %></td></tr>
 	<tr><td>
-		<% @song.tags.each do|t| %>
-		<%= t.tag %>
+		<% @tags.each do|t| %>
+		<%= link_to t.tag ,song_tag_path(@song,t),:method=>:delete,:remote=>true,:class=>'btn btn-default glyphicon glyphicon-remove' %>
 		<% end %>
 	</td></tr>
 	</table>

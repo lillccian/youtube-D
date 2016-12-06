@@ -13,13 +13,14 @@ class SongsController < ApplicationController
 	
 	def show 
 		@song.view!
+		@tag = @song.tags.new
+		@tags = @song.tags.all
 		@ytlinks = @song.ytlinks.all
 		@ytlink = @song.ytlinks.new
 		@comments = @song.comments.all
 		@comment = @song.comments.new
   	@keep = current_user.keeps.find_by_song_id(@song)
   	@like = current_user.likes.find_by_song_id(@song)
-  	@tag = Tag.new
 	end
 	
 	def edit 

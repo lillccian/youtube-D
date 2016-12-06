@@ -5,12 +5,11 @@ Rails.application.routes.draw do
   resources :songs do
   	resources :ytlinks
   	resources :comments
+    resources :tags
     resources :likes , :only=>[:create ,:destroy]
     resources :keeps , :only=>[:create ,:destroy]
   end
   resources :users
-
-  resources :tags
 
   namespace :admin do
     resources :users
