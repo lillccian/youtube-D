@@ -1,6 +1,9 @@
 class TagsController < ApplicationController
 
 	before_action :set_song 
+	
+	def index
+	end
 
 	def new 
 		@tag = @song.tags.new

@@ -5,10 +5,13 @@ class SongsController < ApplicationController
 	before_action :set_song, :only => [:show, :edit, :update, :destroy]
 
 	def index
-		@songs = Song.all 
 		@song = Song.new
-		@tags = Tag.all
-		
+		if params[:keyword]
+	    @tags = Tag.where( [ "tag like ?", "%#{params[:keyword]}%" ] )
+	  else
+			@songs = Song.all 
+	  end
+
 	end
 	
 	def show 
@@ -38,6 +41,7 @@ class SongsController < ApplicationController
 	
 	def update
 		if @song.update(song_params)
+			@tags = @song.tags.all
 			respond_to do |format|
 				format.js
 			end
@@ -71,6 +75,6 @@ class SongsController < ApplicationController
 	end
 
 	def song_params
-		params.require(:song).permit(:name, :link, :description, :tag_ids=>[])
+		params.require(:song).permit(:name, :link, :description)
 	end
 end
