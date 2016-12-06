@@ -20,6 +20,7 @@ class User < ApplicationRecord
      if user
         user.fb_token = auth.credentials.token
         #user.fb_raw_data = auth
+        user.name = auth.info.name
         user.save!
        return user
      end
@@ -41,10 +42,11 @@ class User < ApplicationRecord
      user.email = auth.info.email
      user.password = Devise.friendly_token[0,20]
      #user.fb_raw_data = auth
+     user.name = auth.info.name
      user.save!
      return user
   end
   def name?
-    self.nickname||self.email
+    self.name||self.nickname||self.email
   end
 end
