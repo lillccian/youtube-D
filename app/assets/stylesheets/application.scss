@@ -47,3 +47,25 @@ img{
 		margin: 0;
 	}
 }
+
+.pagination a, .pagination span.current, .pagination span.gap {
+  float: left;
+  padding: 0 14px;
+	color:black;
+  line-height: 34px;
+  text-decoration: none;
+  border: 1px solid #DDD;
+  border-left-width: 0;
+  &:hover{
+  	background-color: #e5e5e5;
+  }
+}
+.pagination {
+  margin: 0 0 0 0;
+  background-color: #fff;
+  border-left: 1px solid #ddd;
+  span.current{
+    background-color: #e5e5e5;
+  	font-size: 2rem;
+  }
+}

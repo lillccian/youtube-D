@@ -7,9 +7,9 @@ class SongsController < ApplicationController
 	def index
 		@song = Song.new
 		if params[:keyword]
-	    @tags = Tag.where( [ "tag like ?", "%#{params[:keyword]}%" ] )
+	    @tags = Tag.where( [ "tag like ?", "%#{params[:keyword]}%" ] ).page(params[:page]).per(6)
 	  else
-			@songs = Song.all 
+			@songs = Song.all.page(params[:page]).per(6)
 	  end
 
 	end
