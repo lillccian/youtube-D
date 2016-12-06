@@ -10,6 +10,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <% if current_user %>
+          <li><img src="<%=current_user.photo%>" alt="" class="photo"></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name? %><span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -21,11 +22,10 @@
             </ul>
           <% else %> 
             <li><%= link_to('Sign in', new_session_path(:user)) %></li>
-            <li><%= link_to "Sign By Facebook", user_facebook_omniauth_authorize_path %></li>
+            <li><%= link_to "Sign By FB", user_facebook_omniauth_authorize_path %></li>
             <li><%= link_to('Sign up', new_registration_path(:user)) %></li>
           </li>
         <% end %>
-        <li><img src="<%=current_user.photo%>" alt="" class="photo"></li>
       </ul>
 
       <form class="navbar-form navbar-right">

@@ -1,0 +1,58 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+	  <b>CHANNELS</b>
+  </div>
+	<table class="table table-hover table-bordered">
+		<% @songs.each do |s| %>
+			<tr>
+				<th><%= s.name %></th>
+				<td>by <%= s.user.name? %></td>
+				<td>
+					<div class="btn btn-default glyphicon glyphicon-music">
+						<sapn class="badge">
+					  	<%= s.ytlinks.count %>
+						</sapn>
+					</div>
+				</td>
+				<td>
+					<div class="btn btn-default glyphicon glyphicon-edit">
+						<sapn class="badge">
+							<%= s.comments.count %>
+						</sapn>
+					</div>
+				</td>
+				<td>
+					<div class="btn btn-default glyphicon glyphicon-eye-open">
+						<sapn class="badge">
+							<%= s.view_count %>
+						</sapn>
+					</div>
+				</td>
+				<td width="5%">
+					<%= link_to'',song_path(s),data: { turbolinks: false }, :class=>'btn btn-default glyphicon glyphicon-search' %>
+				</td>
+				<td width="5%">
+					<%= link_to'',song_path(s),:method=>:delete, :class=>'btn btn-default glyphicon glyphicon-trash' %>
+				</td>	
+			</tr>
+		<% end %>
+	</table>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+	  <b>Tags</b>
+  </div>
+	<table class="table table-hover table-bordered">
+	<tr>
+		<td>
+			<b>Tags</b>
+			<% @tags.each do|t| %>
+			<%= link_to t.tag ,tags_path(t),:method=>:delete,:remote=>true,:class=>'btn btn-default glyphicon glyphicon-remove' %>
+			<% end %>
+		</td>
+	</tr>
+	</table>
+</div>
+
+<%= link_to 'back', songs_path, :class=>'btn btn-default' %> 
