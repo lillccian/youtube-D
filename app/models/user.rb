@@ -43,5 +43,8 @@ class User < ApplicationRecord
      #user.fb_raw_data = auth
      user.save!
      return user
-   end
+  end
+  def name?
+    self.nickname||self.email
+  end
 end
