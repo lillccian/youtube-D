@@ -48,7 +48,7 @@
 		<td>
 			<b>Tags</b>
 			<% @tags.each do|t| %>
-			<%= link_to t.tag ,tags_path(t),:method=>:delete,:remote=>true,:class=>'btn btn-default glyphicon glyphicon-remove' %>
+				<%= link_to t.tag ,song_path(t.song_id),:class=>'btn btn-default' %>
 			<% end %>
 		</td>
 	</tr>

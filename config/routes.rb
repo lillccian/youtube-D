@@ -11,8 +11,6 @@ Rails.application.routes.draw do
   end
   resources :users
 
-  resources :tags  
-
   namespace :admin do
     resources :users
   end
