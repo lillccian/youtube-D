@@ -4,9 +4,11 @@
 
 <div id="song"></div>
 
-<div id="addtag">
-	<%= render 'tags/addtag' %>
-</div>
+<% if current_user == @song.user || current_user.try(:role) == 'admin' %>
+	<div id="addtag">
+		<%= render 'tags/addtag' %>
+	</div>
+<% end %>
 
 <%= render 'youtube' %>
 

@@ -30,7 +30,13 @@
 				<!-- show -->
 				<td width="1%"><%= link_to'',song_path(s),data: { turbolinks: false }, :class=>'btn btn-default glyphicon glyphicon-search' %></td>
 				<!-- delete -->
-				<td width="1%"><%= link_to'',song_path(s),:method=>:delete, :class=>'btn btn-default glyphicon glyphicon-trash' %></td>
+				<% if current_user == s.user || current_user.try(:role) == 'admin' %>
+					<td width="1%"><%= link_to'',song_path(s),:method=>:delete, :class=>'btn btn-default glyphicon glyphicon-trash' %></td>				
+				<% else %>
+					<td width="1%">
+						<span class="btn glyphicon glyphicon-gift"></span>
+					</td>
+				<% end %>
 			</tr>
 		</table>
 	</div>

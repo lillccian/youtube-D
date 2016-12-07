@@ -51,7 +51,9 @@ class SongsController < ApplicationController
 	end
 
 	def destroy
-		@song.destroy
+		if @song.user == current_user || current_user.try(:role) == 'admin'
+			@song.destroy
+		end
 		redirect_to songs_path
 	end
 

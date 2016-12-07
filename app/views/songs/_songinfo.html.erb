@@ -12,9 +12,11 @@
 	<tr><td>
 		<b>Host</b><br>
 		<%= @song.user.email %>
-		<div class="pull-right">
-			<%= link_to'',edit_song_path(@song),:remote=>true, :class=>'btn btn-default glyphicon glyphicon-pencil' %>		
-		</div>
+		<% if current_user == @song.user || current_user.try(:role) == 'admin' %>
+			<div class="pull-right">
+				<%= link_to'',edit_song_path(@song),:remote=>true, :class=>'btn btn-default glyphicon glyphicon-pencil' %>		
+			</div>
+		<% end %>
 	</td></tr>
 	<tr><td>
 		<b>Descriptions:</b><br>
@@ -25,7 +27,11 @@
 		<td>
 			<b>Tags</b>
 			<% @tags.each do|t| %>
-			<%= link_to t.tag ,song_tag_path(@song,t),:method=>:delete,:remote=>true,:class=>'btn btn-default glyphicon glyphicon-remove' %>
+				<% if current_user == t.song.user || current_user.try(:role) == 'admin' %>
+				<%= link_to t.tag ,song_tag_path(@song,t),:method=>:delete,:remote=>true,:class=>'btn btn-default glyphicon glyphicon-remove' %>
+				<% else %>
+					<%= link_to t.tag ,songs_path(:keyword=> t.tag ),:class=>'btn btn-default' %>
+				<% end %>
 			<% end %>
 		</td>
 	</tr>
