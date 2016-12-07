@@ -30,7 +30,7 @@ tr{
 img.header{
 	width: 100%;
 	height: auto;
-	padding: 10px;
+	// padding: 15px;
   margin-bottom: 20px;
 }
 
@@ -81,10 +81,13 @@ img.photo{
   background-color: #c5c5c5;
   border: 1px #fff solid
 }
+.btn-success:hover{
+  background-color: #c5c5c5;
+  border: 1px #fff solid
+}
 .btn-back{
   bottom: 20px;
   right: 12%;
   position: fixed;
   box-shadow: 10px 10px 15px rgba(0,0,0,0.05),-10px 10px 15px rgba(0,0,0,0.05);
 }
-

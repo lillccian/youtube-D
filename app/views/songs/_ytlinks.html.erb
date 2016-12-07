@@ -6,8 +6,20 @@
 			<td><%= y.name %></td>
 			<td><%= y.link %></td>
 			<td width="20%"><b>By </b> <%= y.user.name? %></td>
-			<td width="1%"><%= link_to'',edit_song_ytlink_path(@song,y),:remote=>true,:class=>'btn btn-default glyphicon glyphicon-pencil' %></td>
-			<td width="1%"><%= link_to'',song_ytlink_path(@song,y),:method =>:delete,:remote=>true,:class=>'btn btn-default glyphicon glyphicon-trash' %></td>
+			<% if current_user == y.user || current_user.try(:role) == 'admin' %>
+				<td width="1%"><%= link_to'',edit_song_ytlink_path(@song,y),:remote=>true,:class=>'btn btn-default glyphicon glyphicon-pencil' %></td>
+			<% else %>
+				<td width="1%">
+					<span class="btn glyphicon glyphicon-gift"></span>
+				</td>
+			<% end %>
+			<% if current_user == y.user || current_user.try(:role) == 'admin' %>
+				<td width="1%"><%= link_to'',song_ytlink_path(@song,y),:method =>:delete,:remote=>true,:class=>'btn btn-default glyphicon glyphicon-trash' %></td>
+			<% else %>
+				<td width="1%">
+					<span class="btn glyphicon glyphicon-gift"></span>
+				</td>
+			<% end %>
 		</tr>
 		<% end %>
 	</table>
