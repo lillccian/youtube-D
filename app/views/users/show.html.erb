@@ -1,0 +1,50 @@
+<div class="panel panel-default">
+  <div class="panel-heading"><b>Profile</b></div>
+	<table class="table table-bordered">
+		<tr>
+			<th>Name</th>
+			<td><%= @user.name? %></td>
+		</tr>		
+		<tr>
+			<th>Profile</th>
+			<td><%= @user.profile %></td>
+		</tr>
+		<tr>
+			<th>Likes</th>
+			<td>
+				<% @user.likes.each do |l| %>
+					<%= link_to l.song.name,song_path(l.song), :class=>"btn btn-default" %>
+				<% end %>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading"><b>Channels</b></div>
+	<table class="table table-bordered">
+		<% @user.songs.each do |s| %>
+			<tr>
+				<th>Name</th>
+				<td>
+					<%= link_to s.name,song_path(s) %>
+				</td>
+				<td width="5%">
+					<span class="glyphicon glyphicon-heart"></span>
+				</td>
+				<td width="5%"><%= s.likes.count %></td>
+				<td width="5%">
+					<span class="glyphicon glyphicon-star"></span>
+				</td>
+				<td width="5%"><%= s.keeps.count %></td>
+			</tr>
+		<% end %>		
+	</table>
+</div>
+
+
+
+<% @user.ytlinks do |y| %>
+<%= y.name %>
+<% end %>
+</table>
