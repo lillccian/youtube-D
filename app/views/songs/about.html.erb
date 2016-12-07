@@ -1,19 +1,30 @@
-<div class="panel panel-default">
-  <div class="panel-heading"><b>About YouTube :D</b></div>
-	<table class="table table-bordered table-hover ">
+<div class="col-lg-1"></div>
+<div class="col-lg-10">
+	<h2>About YouTube :D</h2>
+	<table class="table table-bordered">
 		<tr>
-			<td width="33%">Total</td>
-			<td width="33%">Total</td>
-			<td width="33%">Total</td>
+			<th width="50%">Total</th>
+			<td width="50%">
+				<span class="btn glyphicon glyphicon-user"></span>
+				<b><%= @users.count %></b> Users
+			</td>
 		</tr>
 		<tr>
-			<td><%= @users.count %> Users</td>
-			<td><%= @songs.count %> Channels</td>
-			<td><%= @ytlinks.count %> Ytlinks</td>
+			<th>Total</th>
+			<td>
+				<span class="btn glyphicon glyphicon-list-alt"></span>
+				<b><%= @songs.count %></b> Channels
+			</td>
+		</tr>
+		<tr>
+			<th>Total</th>
+			<td>
+				<span class="btn glyphicon glyphicon-music"></span>
+				<b><%= @ytlinks.count %></b> Songs
+			</td>
 		</tr>
 	</table>
 </div>
 
 
-
-<%= link_to"BACK",songs_path ,:class=>'btn btn-default' %>
+<%= link_to"BACK",songs_path ,:class=>'btn btn-default btn-back' %>

@@ -3,7 +3,7 @@
 	  <div class="panel-heading">
 	  	<b><%= s.name %></b> 
 	  	<div class="pull-right">
-				<td>by <%= s.user.name? %></td>
+				<td><b>by </b> <%=link_to s.user.name?,user_path(s.user) %></td>
 	  	</div>
 	  </div>
 		<table class="table table-bordered">

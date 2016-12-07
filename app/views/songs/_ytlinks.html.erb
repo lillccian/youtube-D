@@ -5,7 +5,7 @@
 		<tr id="ytlink-<%= y.id %>">
 			<td><%= y.name %></td>
 			<td><%= y.link %></td>
-			<td width="20%"><b>By </b> <%= y.user.name? %></td>
+			<td width="20%"><b>By </b> <%=link_to y.user.name?,user_path(y.user) %></td>
 			<% if current_user == y.user || current_user.try(:role) == 'admin' %>
 				<td width="1%"><%= link_to'',edit_song_ytlink_path(@song,y),:remote=>true,:class=>'btn btn-default glyphicon glyphicon-pencil' %></td>
 			<% else %>

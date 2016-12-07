@@ -1,12 +1,13 @@
-<div class="panel panel-default">
-  <div class="panel-heading"><b>Profile</b></div>
+<div class="col-lg-1"></div>
+	<div class="col-lg-10">
+	<h2>Profile</h2></b>
 	<table class="table table-bordered">
 		<tr>
 			<th>Name</th>
 			<td><%= @user.name? %></td>
 		</tr>		
 		<tr>
-			<th>Profile</th>
+			<th>Description</th>
 			<td><%= @user.profile %></td>
 		</tr>
 		<tr>
@@ -18,10 +19,8 @@
 			</td>
 		</tr>
 	</table>
-</div>
 
-<div class="panel panel-default">
-  <div class="panel-heading"><b>Channels</b></div>
+	<h3>Channels</h3>
 	<table class="table table-bordered">
 		<% @user.songs.each do |s| %>
 			<tr>

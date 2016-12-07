@@ -1,32 +1,28 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-	  <b>CHANNELS</b>
-  </div>
+<div class="col-lg-1"></div>
+<div class="col-lg-10">
+<h2>CHANNELS</h2>
 	<table class="table table-hover table-bordered">
 		<% @songs.each do |s| %>
 			<tr>
 				<th><%= s.name %></th>
 				<td>by <%= s.user.name? %></td>
-				<td>
-					<div class="btn btn-default glyphicon glyphicon-music">
-						<sapn class="badge">
-					  	<%= s.ytlinks.count %>
-						</sapn>
+				<!-- songs -->
+				<td width="20%">
+					<div class="btn glyphicon glyphicon-music">
 					</div>
+			  	<b><%= s.ytlinks.count %>  Songs</b> 
 				</td>
-				<td>
-					<div class="btn btn-default glyphicon glyphicon-edit">
-						<sapn class="badge">
-							<%= s.comments.count %>
-						</sapn>
+				<!-- views -->
+				<td width="20%">
+					<div class="btn glyphicon glyphicon-edit">
 					</div>
+			  	<b><%= s.comments.count %>  Comments</b> 
 				</td>
-				<td>
-					<div class="btn btn-default glyphicon glyphicon-eye-open">
-						<sapn class="badge">
-							<%= s.view_count %>
-						</sapn>
+				<!-- coments -->
+				<td width="20%">
+					<div class="btn glyphicon glyphicon-eye-open">
 					</div>
+					<b><%= s.view_count %>  Views</b> 
 				</td>
 				<td width="5%">
 					<%= link_to'',song_path(s),data: { turbolinks: false }, :class=>'btn btn-default glyphicon glyphicon-search' %>
@@ -37,12 +33,8 @@
 			</tr>
 		<% end %>
 	</table>
-</div>
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-	  <b>Tags</b>
-  </div>
+	<h3>Tags</h3>
 	<table class="table table-hover table-bordered">
 	<tr>
 		<td>
@@ -55,4 +47,4 @@
 	</table>
 </div>
 
-<%= link_to 'back', songs_path, :class=>'btn btn-default' %> 
+<%= link_to 'back', songs_path, :class=>'btn btn-default btn-back' %> 
