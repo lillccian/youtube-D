@@ -20,7 +20,9 @@
 body{
 	background:transparent url('mosaic.png') left top repeat;
 }
-
+.footer{
+  height: 100px;
+}
 tr{
 	background-color: #fff;
 }
@@ -79,3 +81,10 @@ img.photo{
   background-color: #c5c5c5;
   border: 1px #fff solid
 }
+.btn-back{
+  bottom: 20px;
+  right: 12%;
+  position: fixed;
+  box-shadow: 10px 10px 15px rgba(0,0,0,0.05),-10px 10px 15px rgba(0,0,0,0.05);
+}
+
