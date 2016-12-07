@@ -10,8 +10,6 @@
 
 <%= render 'youtube' %>
 
-<p>ytlinks</p>
-
 <div id="ytlinks">
 	<%= render 'ytlinks' %>
 </div>
@@ -19,8 +17,6 @@
 <div id="ytlink">
 	<%= render 'ytlinks/newytlink' %>
 </div>
-
-<p>comments</p>
 
 <div id="comments">
 	<%= render 'comments' %>
@@ -30,5 +26,6 @@
 	<%= render 'comments/newcomment' %>	
 </div>
 
-<%= link_to 'back', songs_path, :class=>'btn btn-default' %> 
-
+<div class="back-btn">
+	<%= link_to 'BACK', songs_path, :class=>'btn btn-default' %> 	
+</div>

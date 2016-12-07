@@ -1,11 +1,14 @@
-<table class="table table-hover table-bordered">
-	<% @ytlinks.each do |y| %>
-	<tr id="ytlink-<%= y.id %>">
-		<td><%= y.name %></td>
-		<td><%= y.link %></td>
-		<td><%= y.user.email %></td>
-		<td><%= link_to'edit',edit_song_ytlink_path(@song,y),:remote=>true,:class=>'btn btn-default' %></td>
-		<td><%= link_to'delete',song_ytlink_path(@song,y),:method =>:delete,:remote=>true,:class=>'btn btn-default' %></td>
-	</tr>
-	<% end %>
-</table>
+<div class="panel panel-default">
+	<div class="panel-heading"><b>Songs</b></div>
+	<table class="table table-bordered">
+		<% @ytlinks.each do |y| %>
+		<tr id="ytlink-<%= y.id %>">
+			<td><%= y.name %></td>
+			<td><%= y.link %></td>
+			<td width="20%"><b>By </b> <%= y.user.name? %></td>
+			<td width="1%"><%= link_to'',edit_song_ytlink_path(@song,y),:remote=>true,:class=>'btn btn-default glyphicon glyphicon-pencil' %></td>
+			<td width="1%"><%= link_to'',song_ytlink_path(@song,y),:method =>:delete,:remote=>true,:class=>'btn btn-default glyphicon glyphicon-trash' %></td>
+		</tr>
+		<% end %>
+	</table>
+</div>

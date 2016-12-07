@@ -6,7 +6,7 @@
 				<td>by <%= s.user.name? %></td>
 	  	</div>
 	  </div>
-		<table class="table table-bordered text-center">
+		<table class="table table-bordered">
 			<tr>
 				<!-- songs -->
 				<td width="33%">
@@ -16,19 +16,15 @@
 				</td>
 				<!-- views -->
 				<td width="33%">
-					<div class="btn btn-default glyphicon glyphicon-edit">
-						<sapn class="badge">
-							<%= s.comments.count %>
-						</sapn>
+					<div class="btn glyphicon glyphicon-edit">
 					</div>
+			  	<b><%= s.comments.count %>  Comments</b> 
 				</td>
 				<!-- coments -->
 				<td width="33%">
-					<div class="btn btn-default glyphicon glyphicon-eye-open">
-						<sapn class="badge">
-							<%= s.view_count %>
-						</sapn>
+					<div class="btn glyphicon glyphicon-eye-open">
 					</div>
+					<b><%= s.view_count %>  Views</b> 
 				</td>
 
 				<!-- show -->
