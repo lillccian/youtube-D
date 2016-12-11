@@ -5,10 +5,6 @@
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
   <table class="table table-bordered" >
     <tr>
-      <th><%= f.label :nickname,'Nickname' %></th>
-      <td><%= f.text_field :nickname,:class=>"form-control" %></td>
-    </tr>
-    <tr>
       <th><%= f.label :email %></th>
       <td><%= f.email_field :email, autofocus: true,:class=>"form-control" %></td>
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -26,10 +22,6 @@
     <tr>
       <th><%= f.label :current_password %></th>
       <td><%= f.password_field :current_password, autocomplete: "off",:placeholder=>"we need your current password to confirm your changes",:class=>"form-control" %></td>
-    </tr>
-    <tr>
-      <th><%= f.label :profile,'profile' %></th>
-      <td><%= f.text_area :profile,:class=>"form-control" %></td>
     </tr>
   </table>
 
