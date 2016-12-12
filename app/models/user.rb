@@ -4,13 +4,13 @@ class User < ApplicationRecord
 	devise :database_authenticatable, :registerable,
 	       :recoverable, :rememberable, :trackable, :validatable,
 	       :omniauthable, :omniauth_providers => [:facebook]
-  has_many :songs
-  has_many :ytlinks
-  has_many :comments
-  has_many :keeps
-  has_many :keepedusers , :through => :keeps, :source=> "song"
-  has_many :likes
-  has_many :likedusers , :through => :likes, :source=> "song"
+  has_many :songs ,:dependent=>:destroy 
+  has_many :ytlinks ,:dependent=>:destroy 
+  has_many :comments ,:dependent=>:destroy 
+  has_many :keeps ,:dependent=>:destroy 
+  has_many :keepedusers , :through => :keeps, :dependent=>:destroy, :source=> "song"
+  has_many :likes ,:dependent=>:destroy 
+  has_many :likedusers , :through => :likes, :dependent=>:destroy, :source=> "song"
   def admin?
     self.role == "admin"
   end
