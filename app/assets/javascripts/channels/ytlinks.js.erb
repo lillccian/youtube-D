@@ -10,8 +10,17 @@ function subscribe_song( song_id ) {
       },
       disconnected: function() {},
       received: function(data) {
-        a = data;
-        alert(a);
+        names = [];
+        links = [];
+        long = data.length
+        for(i = 0; i < long;i++ ){
+          names.push(data[i][0]);
+          links.push(data[i][1]);
+        }
+        a = links;
+
+        alert(names);
+
       }
     }
   );

@@ -60,7 +60,14 @@ class YtlinksController < ApplicationController
 		if @ytlink.save
 			@ytlink = Ytlink.new
 			@ytlinks = @song.ytlinks.all
-			data = @ytlinks.pluck(:link)
+			# data = {
+			# 	@ytlinks.each do |y|
+			# 		:name => y.name,
+			# 		:link => y.link,
+			# 	end
+			# }
+			data = @ytlinks.pluck(:name,:link)
+			# data = { :name => @ytlink.name, :link => @ytlink.link }
 			ActionCable.server.broadcast( "song_#{@song.id}", data)
 		else
 			render :action => :new
