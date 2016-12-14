@@ -32,3 +32,8 @@
 	<%= link_to 'BACK', songs_path, :class=>'btn btn-default' %> 	
 </div>
 <div class="footer"></div>
+
+<script>
+	subscribe_song( <%= @song.id %> );
+	a = <%= sanitize @ytlinks.pluck(:link).to_json %>
+</script>

@@ -1,0 +1,18 @@
+function subscribe_song( song_id ) {
+  App.ytlinks = App.cable.subscriptions.create(
+    {
+      channel: "YtlinksChannel",
+      song_id: song_id
+    },
+    {
+      connected: function() {
+        console.log("connected to YtlinksChannel")
+      },
+      disconnected: function() {},
+      received: function(data) {
+        a = data;
+        alert(a);
+      }
+    }
+  );
+}

@@ -60,9 +60,8 @@ class YtlinksController < ApplicationController
 		if @ytlink.save
 			@ytlink = Ytlink.new
 			@ytlinks = @song.ytlinks.all
-			respond_to do |format|
-				format.js
-			end
+			data = @ytlinks.pluck(:link)
+			ActionCable.server.broadcast( "song_#{@song.id}", data)
 		else
 			render :action => :new
 		end

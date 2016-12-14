@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require cable
+//= require channels/ytlinks
 //= require_tree .
 // lillccian
 //= require bootstrap-sprockets
