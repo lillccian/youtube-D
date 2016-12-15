@@ -5,7 +5,7 @@
 			<td><%= y.text_field :link, :placeholder=>'Youtube Link ID', :class=>'form-control' %></td>
 			<td width="1%"><%= link_to '', new_song_ytlink_path(@song),:remote=>true, :class => 'btn btn-default glyphicon glyphicon-remove' %></td>
 			<td width="1%"><button type="submit" class='btn btn-default glyphicon glyphicon-plus'></button></td>
-			<td width="1%"><%= link_to '', new_song_ytlink_path(@song, :order=>"refresh"),:remote=>true, :class => 'refresh btn btn-default glyphicon glyphicon-refresh' %></td>
+			<td width="1%"><%= link_to '', new_song_ytlink_path(@song, :order=>"refresh"),:remote=>true, :class => 'btn btn-default glyphicon glyphicon-refresh' %></td>
 		</tr>
 	</table>
 <% end %>
