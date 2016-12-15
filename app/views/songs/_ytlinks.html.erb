@@ -1,6 +1,6 @@
 <div class="panel panel-default">
 	<div class="panel-heading"><b>Songs</b></div>
-	<table class="table table-bordered">
+	<table id ="links" class="table table-bordered">
 		<% @ytlinks.each do |y| %>
 		<tr id="ytlink-<%= y.id %>">
 			<td><%= y.name %></td>
