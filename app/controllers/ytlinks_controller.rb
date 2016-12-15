@@ -58,7 +58,7 @@ class YtlinksController < ApplicationController
 		@ytlink = @song.ytlinks.new(ytlink_params)
 		@ytlink.user = current_user
 		split = @ytlink.link.split(/v=/)
-		@ytlink.link = split[1]
+		@ytlink.link = split.last
 
 		if @ytlink.save
 			# @new = Ytlink.last.link
