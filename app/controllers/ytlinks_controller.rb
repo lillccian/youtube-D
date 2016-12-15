@@ -54,10 +54,16 @@ class YtlinksController < ApplicationController
 	end
 
 	def create
+
 		@ytlink = @song.ytlinks.new(ytlink_params)
 		@ytlink.user = current_user
+		split = @ytlink.link.split(/v=/)
+		@ytlink.link = split[1]
 
 		if @ytlink.save
+			# @new = Ytlink.last.link
+			# @split =@new.spilt(/(v=)/) 
+			# @new = @split[2]
 			@ytlink = Ytlink.new
 			@ytlinks = @song.ytlinks.all
 			# data = {
