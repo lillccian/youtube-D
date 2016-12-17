@@ -6,7 +6,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'omniauth-facebook'
 gem 'kaminari'
 gem 'mysql2'
-gem 'redis'
+gem 'redis','3.2.0'
 gem 'ejs'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
