@@ -8,6 +8,8 @@ gem 'kaminari'
 gem 'mysql2'
 gem 'redis','3.2.0'
 gem 'ejs'
+gem 'capistrano-rails', :group => :development
+gem 'capistrano-passenger', :group => :development
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
